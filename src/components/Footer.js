@@ -25,7 +25,7 @@ export const Footer = () => {
               </a>
             </div>
             <p>
-              can contact me at through my email at aaqilahamad123@gmail.com{" "}
+              can contact me at through my email at aaqilahamad123@gmail.com
             </p>
           </Col>
         </Row>
