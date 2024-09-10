@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import logo from "../assets/img/me2.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
@@ -14,14 +14,22 @@ export const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="Icon" /></a>
-              <a href="#"><img src={navIcon2} alt="Icon" /></a>
-              <a href="#"><img src={navIcon3} alt="Icon" /></a>
+              <a href="#">
+                <img src={navIcon1} alt="Icon" />
+              </a>
+              <a href="#">
+                <img src={navIcon2} alt="Icon" />
+              </a>
+              <a href="#">
+                <img src={navIcon3} alt="Icon" />
+              </a>
             </div>
-            <p>can contact me at through email at aaqilahamad123@gmail.com </p>
+            <p>
+              can contact me at through my email at aaqilahamad123@gmail.com{" "}
+            </p>
           </Col>
         </Row>
       </Container>
     </footer>
-  )
-}
+  );
+};
