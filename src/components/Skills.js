@@ -1,14 +1,12 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import meter4 from "../assets/img/meter4.svg";
-import meter5 from "../assets/img/meter5.svg";
-import meter6 from "../assets/img/meter6.svg";
-import meter7 from "../assets/img/meter7.svg";
-import meter8 from "../assets/img/meter8.svg";
-import meter9 from "../assets/img/meter9.svg";
-import meter10 from "../assets/img/meter10.svg";
-
+import image1 from "../assets/img/html_logo.svg";
+import image2 from "../assets/img/mobile_dev.svg";
+import image3 from "../assets/img/figma_logo.svg";
+import image4 from "../assets/img/unity_logo.svg";
+import image5 from "../assets/img/react_logo.svg";
+import image6 from "../assets/img/java_logo.svg";
+import image7 from "../assets/img/css_logo.svg";
+import image8 from "../assets/img/SQL_logo.svg";
+import image9 from "../assets/img/voiceflow_logo.png";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import arrow1 from "../assets/img/arrow1.svg";
@@ -43,45 +41,43 @@ export const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
                         <h2>Skills</h2>
-                        <p>Skills mainly focused in mobile app development and web development.<br/>
-                        The rating I provide is a scaling from 1 to 10 and it is fully based on my judgement and the judgement is gained from my experience in developing personal projects
-                        </p>
+                        <p>Skills mainly focused in mobile app development and web development.</p>
                         
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <img src={image1} alt="Image" />
                                 <h5>Web Development</h5>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="Image" />
+                                <img src={image2} alt="Image" />
                                 <h5>Mobile App Developmet</h5>
                             </div>
                             <div className="item">
-                                <img src={meter3} alt="Image" />
+                                <img src={image3} alt="Image" />
                                 <h5>Figma System Design</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <img src={image4} alt="Image" />
                                 <h5>Unity</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Javascript</h5>
+                                <img src={image5} alt="Image" />
+                                <h5>React</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <img src={image6} alt="Image" />
                                 <h5>Java</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>.Net</h5>
+                                <img src={image7} alt="Image" />
+                                <h5>CSS</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <img src={image8} alt="Image" />
                                 <h5>SQL</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <img src={image9} alt="Image" />
                                 <h5>Voiceflow</h5>
                             </div>
                         </Carousel>

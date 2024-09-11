@@ -55,7 +55,10 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
+                <a href="/Resume.pdf" className="tagline" target="_blank" rel="noopener noreferrer" download>
+                  View Resume
+                </a>
+
                 <h1>{`Hi! I'm Aaqil`} <span className="txt-rotate" dataPeriod="100" data-rotate='[ "Web Developer", "Mobile App Developer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                   <p>
                   Adaptable programmer skilled in Android app and web development, database management, AR Unity development, UI/UX design, and AI development. 
