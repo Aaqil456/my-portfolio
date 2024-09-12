@@ -56,7 +56,7 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <a href="https://drive.google.com/file/d/1LIOi9mGB6JeDMdCvJUFJQIZzfqzFnqS5/view" className="tagline" target="_blank" rel="noopener noreferrer">
-                  View My Resume
+                  View  Resume
                 </a>
 
                 <h1>{`Hi! I'm Aaqil`} <span className="txt-rotate" dataPeriod="100" data-rotate='[ "Web Developer", "Mobile App Developer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
