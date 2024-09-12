@@ -249,6 +249,26 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 16px;
   display: inline-block;
 }
+
+/* Media Queries for responsiveness */
+@media (max-width: 576px) {
+  .proj-txtx h4 {
+    font-size: 1.2rem;
+  }
+  .proj-imgbx img {
+    height: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .proj-txtx h4 {
+    font-size: 1.5rem;
+  }
+  .proj-imgbx img {
+    height: 200px;
+  }
+}
+
 /*resume button*/
 .tagline {
   display: inline-block; /* Make the link behave like a block element for button-like appearance */
