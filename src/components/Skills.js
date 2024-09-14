@@ -50,7 +50,7 @@ export const Skills = () => {
                             </div>
                             <div className="item">
                                 <img src={image2} alt="Image" />
-                                <h5>Mobile App Developmet</h5>
+                                <h5>Mobile App Development</h5>
                             </div>
                             <div className="item">
                                 <img src={image3} alt="Image" />
