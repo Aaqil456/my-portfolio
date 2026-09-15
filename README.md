@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Aaqil Ahamad — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio for Aaqil Ahamad, software engineer (full-stack, AI automation & Web3).
+Live at **https://aaqil456.github.io/my-portfolio/**.
 
-## Available Scripts
+Built with React, TypeScript, Vite and Tailwind CSS.
 
-In the project directory, you can run:
+## Getting started
 
-### `npm start`
+```bash
+npm install
+npm run dev       # start the dev server at http://localhost:5173/my-portfolio/
+npm run build     # type-check and build to dist/
+npm run preview   # serve the production build locally
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Updating content
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Everything on the page — intro, experience, projects, skills, education and links — lives in
+[`src/data/profile.ts`](src/data/profile.ts). Edit that file; the components pick it up automatically.
 
-### `npm test`
+- **Featured project:** `featuredProject` (currently [Sentysis](https://sentysis.com/)) is shown full-width above
+  the regular project grid — it's the one piece of current, live work on the page.
+- **Photos:** project screenshots and the portrait are in `src/assets/img/`.
+- **Colours & fonts:** design tokens are defined at the top of `src/index.css` (light and dark themes). The whole
+  site uses a single typeface, Inter.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deploying to GitHub Pages
 
-### `npm run build`
+```bash
+npm run deploy
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This builds the site and publishes `dist/` to the `gh-pages` branch. The base path is set to
+`/my-portfolio/` in `vite.config.ts` — change it there if the repository is renamed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+src/
+  components/   page sections (Hero, About, Experience, Projects, Skills, Education, Contact)
+  data/         profile.ts — all site content
+  hooks/        theme toggle, scroll-spy and reveal-on-scroll
+  index.css     Tailwind setup and design tokens
+```

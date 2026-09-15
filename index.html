@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aaqil Ahamad — Software Engineer</title>
+    <meta
+      name="description"
+      content="Aaqil Ahamad is a software engineer in Kuala Lumpur building full-stack web apps, AI automation pipelines and Web3 platforms with React, TypeScript, Supabase, Python and Solidity."
+    />
+    <meta name="author" content="Aaqil Ahamad" />
+    <meta name="theme-color" content="#0b0b0c" />
+    <link rel="canonical" href="https://aaqil456.github.io/my-portfolio/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aaqil Ahamad" />
+    <meta property="og:title" content="Aaqil Ahamad — Software Engineer" />
+    <meta property="og:description" content="Full-stack, AI automation and Web3 developer based in Kuala Lumpur." />
+    <meta property="og:url" content="https://aaqil456.github.io/my-portfolio/" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Set the theme before first paint to avoid a flash of the wrong colours. -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>This site needs JavaScript enabled to run.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
