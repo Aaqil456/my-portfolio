@@ -7,14 +7,14 @@ import vrShooter from '../assets/img/vr-shooter.jpg';
 export const profile = {
   name: 'Aaqil Ahamad',
   role: 'Software Engineer',
-  location: 'Kuala Lumpur, MY',
+  location: 'Selangor, MY',
   timeZone: 'Asia/Kuala_Lumpur',
   email: 'aaqilahamad456@gmail.com',
   github: 'https://github.com/Aaqil456',
   linkedin: 'https://www.linkedin.com/in/aaqil-ahamad-8581923a5',
   portrait,
   intro:
-    'Software engineer in Kuala Lumpur working across full-stack web, AI automation and Web3. Right now I’m the sole developer at Sentysis, building a production Web3 platform from the database schema to the smart contracts.',
+    'Software engineer in Selangor working across full-stack web, AI automation and Web3. Right now I’m the sole developer at Sentysis, building a production Web3 platform from the database schema to the smart contracts.',
   about: [
     'I’m a software engineer with two years of hands-on development experience across full-stack web applications, AI automation pipelines and blockchain-integrated platforms.',
     'At Sentysis I work directly with the founder as the only developer on the product — owning the React/TypeScript frontend, the Supabase backend, on-chain Solidity integration and the CI/CD pipeline that ships it.',
@@ -24,7 +24,7 @@ export const profile = {
 
 export const stats = [
   { value: '2 yrs', label: 'Hands-on software development' },
-  { value: 'Solo', label: 'Developer on a production Web3 platform' },
+  { value: 'Dev', label: 'Developer on a production Web3 platform' },
   { value: '24/7', label: 'Availability sustained on a custom Telegram bot' },
   { value: '3.60', label: 'CGPA · B.IT (Hons.), UKM' },
 ];
