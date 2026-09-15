@@ -9,7 +9,6 @@ export const profile = {
   role: 'Software Engineer',
   location: 'Kuala Lumpur, MY',
   timeZone: 'Asia/Kuala_Lumpur',
-  status: 'Currently building at Sentysis',
   email: 'aaqilahamad456@gmail.com',
   github: 'https://github.com/Aaqil456',
   linkedin: 'https://www.linkedin.com/in/aaqil-ahamad-8581923a5',
@@ -30,29 +29,23 @@ export const stats = [
   { value: '3.60', label: 'CGPA · B.IT (Hons.), UKM' },
 ];
 
-export type CapabilityIcon = 'code' | 'bot' | 'chain' | 'clipboard';
-
-export const capabilities: { icon: CapabilityIcon; title: string; description: string }[] = [
+export const capabilities: { title: string; description: string }[] = [
   {
-    icon: 'code',
     title: 'Full-stack product engineering',
     description:
       'Responsive React + TypeScript frontends on Supabase backends — PostgreSQL schema design, Edge Functions, Storage and Realtime.',
   },
   {
-    icon: 'bot',
     title: 'AI & workflow automation',
     description:
       'LLM pipelines with Gemini AI, RAG architectures with CrewAI, and scheduled Python jobs that replace recurring manual work.',
   },
   {
-    icon: 'chain',
     title: 'Web3 & on-chain integration',
     description:
       'Solidity smart contract integration on EVM chains like Base, using Viem for transactions and Privy for wallet authentication.',
   },
   {
-    icon: 'clipboard',
     title: 'Requirements to release',
     description:
       'Requirements gathering, UI prototyping and SIT/UAT testing, so what ships is what stakeholders actually asked for.',

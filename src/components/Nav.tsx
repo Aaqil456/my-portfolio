@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useTheme } from '../hooks/useTheme';
-import { ArrowRightIcon, CloseIcon, MenuIcon, MoonIcon, SunIcon } from './Icons';
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About' },
@@ -52,11 +51,11 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        solid ? 'border-line bg-bg/85 backdrop-blur-xl' : 'border-transparent'
+        solid ? 'border-line bg-bg' : 'border-transparent'
       }`}
     >
       <nav aria-label="Primary" className="container-page relative flex h-16 items-center justify-end gap-4">
-        <ul className="hidden items-center gap-1 rounded-full border border-line bg-elev/70 p-1 backdrop-blur lg:absolute lg:left-1/2 lg:flex lg:-translate-x-1/2">
+        <ul className="hidden items-center gap-1 rounded-full border border-line bg-elev p-1 lg:absolute lg:left-1/2 lg:flex lg:-translate-x-1/2">
           {NAV_ITEMS.map((item) => {
             const isActive = active === item.id;
             return (
@@ -80,19 +79,18 @@ export function Nav() {
             type="button"
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-fg"
+            className="h-9 rounded-full border border-line px-3.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg"
           >
-            {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+            {theme === 'dark' ? 'Dark' : 'Light'}
           </button>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="grid size-9 place-items-center rounded-full border border-line transition-colors hover:border-line-strong lg:hidden"
+            className="h-9 rounded-full border border-line px-3.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg lg:hidden"
           >
-            {menuOpen ? <CloseIcon className="size-4" /> : <MenuIcon className="size-4" />}
+            {menuOpen ? 'Close' : 'Menu'}
           </button>
         </div>
       </nav>
@@ -105,10 +103,9 @@ export function Nav() {
                 <a
                   href={`#${item.id}`}
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between py-4 text-2xl font-medium tracking-tight"
+                  className="block py-4 text-2xl font-medium tracking-tight"
                 >
                   {item.label}
-                  <ArrowRightIcon className="size-5 text-subtle" />
                 </a>
               </li>
             ))}

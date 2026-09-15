@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { profile } from '../data/profile';
-import { CheckIcon, CopyIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
-import { ButtonLink, Eyebrow, Highlight, Reveal } from './ui';
+import { Eyebrow, Highlight, Reveal, TextLink } from './ui';
 
 function EmailActions() {
   const [copied, setCopied] = useState(false);
@@ -21,25 +20,13 @@ function EmailActions() {
   };
 
   return (
-    <div className="inline-flex max-w-full items-stretch overflow-hidden rounded-full bg-accent text-on-accent">
-      <a
-        href={`mailto:${profile.email}`}
-        className="inline-flex min-w-0 items-center gap-2 py-3 pr-4 pl-5 font-medium transition hover:brightness-95"
-      >
-        <MailIcon className="size-4 shrink-0" />
-        <span className="truncate">{profile.email}</span>
-      </a>
-      <button
-        type="button"
-        onClick={copyEmail}
-        aria-label="Copy email address"
-        className="grid w-12 place-items-center border-l border-on-accent/15 transition hover:bg-black/5"
-      >
-        {copied ? <CheckIcon className="size-4" /> : <CopyIcon className="size-4" />}
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <TextLink href={`mailto:${profile.email}`} className="text-base">
+        {profile.email}
+      </TextLink>
+      <button type="button" onClick={copyEmail} className="text-sm text-muted underline decoration-line-strong underline-offset-4 transition-colors hover:text-fg hover:decoration-fg">
+        {copied ? 'Copied' : 'Copy'}
       </button>
-      <span className="sr-only" aria-live="polite">
-        {copied ? 'Email address copied' : ''}
-      </span>
     </div>
   );
 }
@@ -49,16 +36,7 @@ export function Contact() {
     <section id="contact" className="border-t border-line py-24 sm:py-32">
       <div className="container-page">
         <Reveal>
-          <div className="relative isolate overflow-hidden rounded-3xl border border-line bg-elev px-6 py-14 sm:px-12 sm:py-20">
-            <div
-              aria-hidden="true"
-              className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top_right,#000,transparent_70%)]"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute -top-32 -right-24 -z-10 size-96 rounded-full bg-accent/25 blur-[100px] dark:bg-accent/10"
-            />
-
+          <div className="rounded-3xl border border-line bg-elev px-6 py-14 sm:px-12 sm:py-20">
             <Eyebrow index="06" label="Contact" />
             <h2 className="mt-5 max-w-3xl text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] font-semibold tracking-[-0.04em] text-balance">
               Have something that needs to <Highlight>ship</Highlight>?
@@ -68,16 +46,14 @@ export function Contact() {
               to reach me.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <EmailActions />
-              <ButtonLink href={profile.linkedin} external variant="secondary">
-                <LinkedInIcon className="size-4" />
+              <TextLink href={profile.linkedin} target="_blank" rel="noopener noreferrer">
                 LinkedIn
-              </ButtonLink>
-              <ButtonLink href={profile.github} external variant="secondary">
-                <GitHubIcon className="size-4" />
+              </TextLink>
+              <TextLink href={profile.github} target="_blank" rel="noopener noreferrer">
                 GitHub
-              </ButtonLink>
+              </TextLink>
             </div>
           </div>
         </Reveal>

@@ -1,35 +1,21 @@
-import type { ComponentType } from 'react';
 import { archive, featuredProject, projects } from '../data/profile';
 import type { LinkKind, ProjectLink } from '../data/profile';
-import { ArrowUpRightIcon, GitHubIcon, PlayIcon } from './Icons';
-import type { IconProps } from './Icons';
-import { ButtonLink, Reveal, SectionHeading, Tag } from './ui';
+import { Reveal, SectionHeading, Tag, TextLink } from './ui';
 
-const LINK_META: Record<LinkKind, { label: string; Icon: ComponentType<IconProps> }> = {
-  source: { label: 'Source', Icon: GitHubIcon },
-  demo: { label: 'Demo', Icon: PlayIcon },
-  live: { label: 'Live', Icon: ArrowUpRightIcon },
+const LINK_LABELS: Record<LinkKind, string> = {
+  source: 'Source',
+  demo: 'Demo',
+  live: 'Live',
 };
 
 function ProjectLinks({ links, title }: { links: ProjectLink[]; title: string }) {
   return (
-    <div className="flex flex-wrap gap-2">
-      {links.map((link) => {
-        const { label, Icon } = LINK_META[link.kind];
-        return (
-          <ButtonLink
-            key={link.href}
-            href={link.href}
-            external
-            variant="secondary"
-            size="sm"
-            aria-label={`${label}: ${title}`}
-          >
-            <Icon className="size-3.5" />
-            {label}
-          </ButtonLink>
-        );
-      })}
+    <div className="flex flex-wrap gap-x-4 gap-y-2">
+      {links.map((link) => (
+        <TextLink key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`${LINK_LABELS[link.kind]}: ${title}`}>
+          {LINK_LABELS[link.kind]}
+        </TextLink>
+      ))}
     </div>
   );
 }
@@ -37,19 +23,19 @@ function ProjectLinks({ links, title }: { links: ProjectLink[]; title: string })
 function FeaturedProject() {
   return (
     <Reveal>
-      <article className="group grid overflow-hidden rounded-2xl border border-line bg-elev lg:grid-cols-2">
+      <article className="grid overflow-hidden rounded-2xl border border-line bg-elev lg:grid-cols-2">
         <div className="aspect-video overflow-hidden border-b border-line bg-elev-2 lg:aspect-auto lg:border-r lg:border-b-0">
           <img
             src={featuredProject.image}
             alt={`Screenshot of ${featuredProject.title}`}
             loading="lazy"
-            className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className="size-full object-cover"
             style={{ objectPosition: featuredProject.imagePosition }}
           />
         </div>
         <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-ink/30 bg-accent/15 px-2.5 py-1 text-xs font-medium text-accent-ink">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-xs font-medium text-accent-ink">
               <span className="size-1.5 rounded-full bg-accent-ink" />
               Live now
             </span>
@@ -95,15 +81,15 @@ export function Projects() {
         </div>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {projects.map((project, index) => (
-            <Reveal key={project.title} delay={index * 90} className="h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-elev">
+          {projects.map((project) => (
+            <Reveal key={project.title} className="h-full">
+              <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-elev">
                 <div className="aspect-16/10 overflow-hidden border-b border-line bg-elev-2">
                   <img
                     src={project.image}
                     alt={`Screenshot of ${project.title}`}
                     loading="lazy"
-                    className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="size-full object-cover"
                     style={{ objectPosition: project.imagePosition }}
                   />
                 </div>

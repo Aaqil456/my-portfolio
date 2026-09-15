@@ -1,17 +1,6 @@
 import { useEffect, useState } from 'react';
-import type { ComponentType } from 'react';
 import { capabilities, profile } from '../data/profile';
-import type { CapabilityIcon } from '../data/profile';
-import { BotIcon, ClipboardCheckIcon, CodeIcon, LinkIcon, MapPinIcon } from './Icons';
-import type { IconProps } from './Icons';
 import { Highlight, Reveal, SectionHeading } from './ui';
-
-const CAPABILITY_ICONS: Record<CapabilityIcon, ComponentType<IconProps>> = {
-  code: CodeIcon,
-  bot: BotIcon,
-  chain: LinkIcon,
-  clipboard: ClipboardCheckIcon,
-};
 
 function LocalTime({ timeZone }: { timeZone: string }) {
   const [now, setNow] = useState(() => new Date());
@@ -42,10 +31,7 @@ export function About() {
               />
             </div>
             <figcaption className="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
-              <span className="inline-flex items-center gap-1.5">
-                <MapPinIcon className="size-4" />
-                {profile.location}
-              </span>
+              <span>{profile.location}</span>
               <LocalTime timeZone={profile.timeZone} />
             </figcaption>
           </figure>
@@ -70,20 +56,17 @@ export function About() {
           </Reveal>
 
           <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
-            {capabilities.map((capability, index) => {
-              const Icon = CAPABILITY_ICONS[capability.icon];
-              return (
-                <li key={capability.title} className="bg-elev">
-                  <Reveal delay={index * 70} className="h-full p-6 sm:p-7">
-                    <span className="grid size-10 place-items-center rounded-xl border border-line bg-bg text-accent-ink">
-                      <Icon className="size-5" />
-                    </span>
-                    <h3 className="mt-5 text-lg font-semibold tracking-tight">{capability.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted">{capability.description}</p>
-                  </Reveal>
-                </li>
-              );
-            })}
+            {capabilities.map((capability, index) => (
+              <li key={capability.title} className="bg-elev">
+                <Reveal className="h-full p-6 sm:p-7">
+                  <p className="text-xs font-semibold tracking-[0.14em] text-accent-ink">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="mt-3 text-lg font-semibold tracking-tight">{capability.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{capability.description}</p>
+                </Reveal>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

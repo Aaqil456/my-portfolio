@@ -1,5 +1,4 @@
 import { profile } from '../data/profile';
-import { ArrowUpIcon } from './Icons';
 
 export function Footer() {
   return (
@@ -8,9 +7,8 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {profile.name}. Built with React, TypeScript and Tailwind CSS.
         </p>
-        <a href="#top" className="inline-flex items-center gap-1.5 transition-colors hover:text-fg">
+        <a href="#top" className="transition-colors hover:text-fg">
           Back to top
-          <ArrowUpIcon className="size-3.5" />
         </a>
       </div>
     </footer>

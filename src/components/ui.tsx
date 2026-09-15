@@ -1,26 +1,10 @@
-import type { AnchorHTMLAttributes, CSSProperties, ReactNode } from 'react';
-import { useReveal } from '../hooks/useReveal';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
 
-export function Reveal({
-  children,
-  className = '',
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const { ref, visible } = useReveal<HTMLDivElement>();
-  return (
-    <div
-      ref={ref}
-      data-visible={visible}
-      className={`reveal ${className}`}
-      style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}
-    >
-      {children}
-    </div>
-  );
+// Plain wrapper — kept so section components don't need editing, but it no
+// longer animates anything. `delay` is accepted for call-site compatibility
+// and ignored.
+export function Reveal({ children, className = '' }: { children: ReactNode; className?: string; delay?: number }) {
+  return <div className={className}>{children}</div>;
 }
 
 /** Accent colour for a single emphasised word inside a heading. */
@@ -69,7 +53,7 @@ type ButtonVariant = 'primary' | 'secondary';
 type ButtonSize = 'sm' | 'md';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: 'bg-accent text-on-accent hover:brightness-95',
+  primary: 'bg-accent text-on-accent hover:bg-accent-ink hover:text-bg',
   secondary: 'border border-line-strong bg-elev text-fg hover:bg-elev-2',
 };
 
@@ -89,7 +73,17 @@ export function ButtonLink({ variant = 'primary', size = 'md', external = false,
     <a
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       {...props}
-      className={`inline-flex items-center justify-center rounded-full font-medium whitespace-nowrap transition ${SIZE_CLASSES[size]} ${VARIANT_CLASSES[variant]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-full font-medium whitespace-nowrap transition-colors ${SIZE_CLASSES[size]} ${VARIANT_CLASSES[variant]} ${className}`}
+    />
+  );
+}
+
+/** Plain text link with an underline that appears on hover — used instead of icon buttons. */
+export function TextLink({ className = '', ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a
+      {...props}
+      className={`text-sm font-medium underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-fg ${className}`}
     />
   );
 }
