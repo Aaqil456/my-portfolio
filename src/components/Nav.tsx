@@ -13,6 +13,21 @@ const NAV_ITEMS = [
 // Sections without a nav item are observed too, so no link stays highlighted while they're in view.
 const OBSERVED_SECTIONS = ['top', 'about', 'experience', 'projects', 'skills', 'education', 'contact'];
 
+/** Three-line hamburger that swaps to an X while the drawer is open. Plain CSS, no icon set. */
+function MenuGlyph({ open }: { open: boolean }) {
+  return (
+    <span className="relative block size-4">
+      <span
+        className={`absolute inset-x-0 h-px bg-fg ${open ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0.75'}`}
+      />
+      <span className={`absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-fg ${open ? 'opacity-0' : ''}`} />
+      <span
+        className={`absolute inset-x-0 h-px bg-fg ${open ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0.75'}`}
+      />
+    </span>
+  );
+}
+
 export function Nav() {
   const active = useActiveSection(OBSERVED_SECTIONS);
   const { theme, toggleTheme } = useTheme();
@@ -88,30 +103,45 @@ export function Nav() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="h-9 rounded-full border border-line px-3.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg lg:hidden"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            className="grid size-9 place-items-center rounded-full border border-line transition-colors hover:border-line-strong lg:hidden"
           >
-            {menuOpen ? 'Close' : 'Menu'}
+            <MenuGlyph open={menuOpen} />
           </button>
         </div>
       </nav>
 
-      {menuOpen && (
-        <div id="mobile-menu" className="container-page h-[calc(100dvh-4rem)] overflow-y-auto pb-8 lg:hidden">
-          <ul className="border-t border-line">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.id} className="border-b border-line">
-                <a
-                  href={`#${item.id}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-4 text-2xl font-medium tracking-tight"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Backdrop */}
+      <button
+        type="button"
+        aria-hidden="true"
+        tabIndex={-1}
+        onClick={() => setMenuOpen(false)}
+        className={`fixed inset-0 top-16 z-40 bg-fg/30 lg:hidden ${menuOpen ? 'block' : 'hidden'}`}
+      />
+
+      {/* Drawer */}
+      <div
+        id="mobile-menu"
+        inert={!menuOpen}
+        className={`fixed inset-y-0 top-16 right-0 z-50 w-full max-w-xs overflow-y-auto border-l border-line bg-bg transition-transform duration-200 ease-out lg:hidden ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <ul className="border-t border-line px-5">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.id} className="border-b border-line">
+              <a
+                href={`#${item.id}`}
+                onClick={() => setMenuOpen(false)}
+                className="block py-4 text-xl font-medium tracking-tight"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 }
